@@ -37,8 +37,10 @@ const routes = [
     component: () => import('@/views/404/NotFound.vue')
   },
   {
-    path: '*',
-    component: () => import('@/views/404/NotFound.vue')
+    // 识别不到的 path，自动跳转至 404
+    // vue2 使用 *，vue3 使用 :patchMatch('*') 或者 :catchAll(.*)
+    path: '/:catchAll(.*)',
+    redirect: '/notFound'
   }
 ]
 

@@ -8,6 +8,7 @@
 </script>
 
 <template>
+  <el-button type="primary" round>Primary</el-button>
   <div>首页</div>
 </template>
 
