@@ -8,9 +8,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-// 完整导入 EP
-import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
+// 引入初始化样式文件
+import '@/styles/common.css'
 
 
-createApp(App).use(store).use(router).use(ElementPlus).mount('#app')
+createApp(App).use(store).use(router).mount('#app')

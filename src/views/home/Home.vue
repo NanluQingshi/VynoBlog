@@ -4,11 +4,12 @@
  * @Description: 
 -->
 <script setup>
+import LayoutHeader from '@/views/layout/components/LayoutHeader.vue'
 
 </script>
 
 <template>
-  <el-button type="primary" round>Primary</el-button>
+  <LayoutHeader></LayoutHeader>
   <div>首页</div>
 </template>
 
