@@ -1,7 +1,7 @@
 <!--
  * @Author: nlqs
  * @Date: 2024-05-25 19:08:38
- * @Description: 
+ * @Description: 首页
 -->
 <script setup>
 import HomeNav from "./components/HomeNav.vue"
