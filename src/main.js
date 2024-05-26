@@ -10,6 +10,8 @@ import store from './store'
 
 // 引入初始化样式文件
 import '@/styles/common.css'
+// 引入 icon
+import '@/assets/css/iconfont.css'
 
 
 createApp(App).use(store).use(router).mount('#app')
