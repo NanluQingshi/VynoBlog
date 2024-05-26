@@ -10,6 +10,8 @@
 
 <style lang="less" scoped>
 .footer {
+  position: absolute;
+  bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
