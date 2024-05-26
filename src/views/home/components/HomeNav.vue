@@ -4,12 +4,87 @@
  * @Description: 
 -->
 <script setup>
+import { ref } from 'vue'
+
+const indexText = ref('推荐') 
+
+// 导航切换
+const doSwitch = (e) => {
+  // console.log(e.target.innerText)
+  indexText.value = e.target.innerText
+}
+
+// TODO: 推荐
+const doRecommend = (e) => {
+  doSwitch(e)
+}
+
+// TODO: 最新
+const doNew = (e) => {
+  doSwitch(e)
+}
+
+// TODO： 最热
+const doHot = (e) => {
+  doSwitch(e)
+}
 </script>
 
 <template>
-  
-  <div></div>
+  <div class="nav">
+    <p class="selectedText">{{ indexText }}</p>
+    <div class="menu">
+      <ul>
+        <li :class="indexText === '推荐' ? 'active' : ''"><a href="javascript:void(0)" @click="doRecommend">推荐</a></li>
+        <li :class="indexText === '最新' ? 'active' : ''"><a href="javascript:void(0)"  @click="doNew">最新</a></li>
+        <li :class="indexText === '最热' ? 'active' : ''"><a href="javascript:void(0)" @click="doHot">最热</a></li>
+      </ul>
+    </div>
+  </div>
 </template>
 
 <style lang="less" scoped>
+.active {
+  color: skyblue;
+  font-weight: 1000;
+  font-size: 1.2vw;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2vw auto;
+  padding: 0 1.8vw;
+  width: 80%;
+  height: 10vh;
+  background-color: #fff;
+
+  p {
+    font-size: 2vw;
+    font-weight: 700;
+    color: #5c3317;
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+
+    li {
+      // margin-left: 1.5vw;
+      
+      a {
+        display: inline-block;
+        width: 4rem;
+        border: 1px solid #7d6f5c;
+        text-align: center;
+        font-size: 1.3rem;
+
+        &:hover {
+          color: orange;
+        }
+      }
+    }
+  }
+}
 </style>
