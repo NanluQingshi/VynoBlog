@@ -4,11 +4,12 @@
  * @Description: 
 -->
 <script setup>
+import HomeNav from "./components/HomeNav.vue"
 
 </script>
 
 <template>
-  <div>首页</div>
+  <HomeNav></HomeNav>
 </template>
 
 <style scoped lang="less">
