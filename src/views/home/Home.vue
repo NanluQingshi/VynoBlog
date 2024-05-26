@@ -5,11 +5,13 @@
 -->
 <script setup>
 import HomeNav from "./components/HomeNav.vue"
+import HomeList from "./components/HomeList.vue"
 
 </script>
 
 <template>
   <HomeNav></HomeNav>
+  <HomeList></HomeList>
 </template>
 
 <style scoped lang="less">
