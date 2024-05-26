@@ -16,19 +16,19 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 6vw;
+  height: 6.25rem;
   background-color: #333;
   cursor: default;
 
   img {
-    width: 3vw;
-    height: 3vw;
+    width: 3rem;
+    height: 3rem;
   }
 
   span {
-    margin-left: 1vw;
+    margin-left: 1rem;
     color: #fff;
-    line-height: 3vw;
+    line-height: 3rem;
   }
 }
 </style>

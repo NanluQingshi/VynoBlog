@@ -50,7 +50,7 @@ const isLogin = ref(false)
 <style lang="less" scoped>
 nav {
   width: 100%;
-  height: 10vh;
+  height: 5rem;
   background-color: #333;
 
   .nav {
@@ -59,33 +59,33 @@ nav {
     align-items: center;
     margin: 0 auto;
     width: 80%;
-    height: 10vh;
+    height: 5rem;
 
     .logo {
       display: flex;
       align-items: center;
-      width: 13vw;
+      width: 13.5rem;
       height: 100%;
       color: #fff;
-      line-height: 10vh;
-      font-size: 1.5vw;
+      line-height: 5rem;
+      font-size: 1.5rem;
       cursor: pointer;
 
       img {
-        margin-right: 0.7vw;
-        width: 3vw;
-        height: 3vw;
+        margin-right: 0.7rem;
+        width: 3rem;
+        height: 3rem;
       }
     }
 
     ul {
       display: flex;
       justify-content: space-around;
-      width: 19.5vw;
+      width: 20rem;
 
       a {
         color: #fff;
-        font-size: 1.2vw;
+        font-size: 1.2rem;
         transition: .8s;
         &:hover {
           color: skyblue;
@@ -99,7 +99,7 @@ nav {
       height: 100%;
 
       .login {
-        font-size: 1.2vw;
+        font-size: 1.3rem;
         color: #fff;
       }
 
@@ -109,8 +109,8 @@ nav {
         cursor: pointer;
 
         img {
-          width: 2.5vw;
-          height: 2.5vw;
+          width: 2.5rem;
+          height: 2.5rem;
         }
 
         p {
@@ -119,18 +119,20 @@ nav {
 
         .hide-box {
           position: absolute;
-          bottom: -3.2vw;
-          left: -1.5vw;
-          width: 9.8vw;
+          bottom: -4rem;
+          left: -1.5rem;
+          width: 9.8rem;
           text-align: center;
+          transition: .5s;
 
           button {
             display: block;
+            margin-bottom: 0.5rem;
             color: purple;
             background-color: #fff;
-            width: 6vw;
-            height: 1.5vw;
-            border-radius: 1vw;
+            width: 100%;
+            height: 1.5rem;
+            border-radius: 1rem;
 
             &:hohver {
               background-color: #ccc;

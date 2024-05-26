@@ -7,7 +7,7 @@
 import { ref } from 'vue'
 
 // 搜索内容
-const content = ref('')
+const content = ref('') 
 </script>
 
 <template>
@@ -29,21 +29,21 @@ const content = ref('')
   position: relative;
   display: flex;
   align-items: center;
-  width: 26vw;
+  width: 27rem;
   height: 100%;
 
   input {
-    padding-left: 0.8vw;
+    padding-left: 0.8rem;
     width: 100%;
-    height: 5vh;
+    height: 2.2rem;
     // 移除元素的默认外边框
     outline: none;
     border: none;
-    border-radius: 1vw 0 0 1vw;
+    border-radius: 1rem 0 0 1rem;
     transition: .6s;
 
     &:focus {
-      font-size: 1vw;
+      font-size: 1rem;
       box-shadow: 0 0 5px 5px rgba(200, 233, 224, 0.34);
     }
   }
@@ -51,8 +51,8 @@ const content = ref('')
   .img {
     position: absolute;
     right: 0;
-    height: 5vh;
-    width: 5vh;
+    height: 2.2rem;
+    width: 2.2rem;
     background-color: #ccc;
     cursor: pointer;
 

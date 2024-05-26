@@ -47,21 +47,21 @@ const doHot = (e) => {
 .active {
   color: skyblue;
   font-weight: 1000;
-  font-size: 1.2vw;
+  font-size: 1.5rem;
 }
 
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 2vw auto;
-  padding: 0 1.8vw;
+  margin: 2rem auto;
+  padding: 0 1.8rem;
   width: 80%;
-  height: 10vh;
+  height: 3.9rem;
   background-color: #fff;
 
   p {
-    font-size: 2vw;
+    font-size: 2rem;
     font-weight: 700;
     color: #5c3317;
   }
@@ -71,14 +71,13 @@ const doHot = (e) => {
     justify-content: space-between;
 
     li {
-      // margin-left: 1.5vw;
       
       a {
         display: inline-block;
         width: 4rem;
         border: 1px solid #7d6f5c;
         text-align: center;
-        font-size: 1.3rem;
+        font-size: 1.5rem;
 
         &:hover {
           color: orange;
