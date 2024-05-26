@@ -1,10 +1,10 @@
 <!--
  * @Author: nlqs
  * @Date: 2024-05-25 19:26:05
- * @Description: 
+ * @Description: 登录页面
 -->
 <script setup>
-import Main from './components/Main.vue'
+import OpMain from './components/OpMain.vue'
 </script>
 
 <template>
@@ -15,7 +15,7 @@ import Main from './components/Main.vue'
       <p class="register-btn" @click="$router.push('/register')">注册</p>
     </div>
     <div class="login">
-      <Main op="Login"></Main>
+      <OpMain op="Login"></OpMain>
     </div>
   </div>
 </template>
