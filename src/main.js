@@ -4,14 +4,15 @@
  * @Description: 
  */
 import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
-import store from './store'
 
 // 引入初始化样式文件
 import '@/styles/common.css'
 // 引入 icon
 import '@/assets/css/iconfont.css'
 
+const pinia = createPinia()
 
-createApp(App).use(store).use(router).mount('#app')
+createApp(App).use(router).use(pinia).mount('#app')

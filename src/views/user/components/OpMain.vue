@@ -5,6 +5,10 @@
 -->
 <script setup>
 import { ref, defineProps } from 'vue'
+import { useUserStore } from '@/store/userStore'
+
+// 用户仓库
+const userStore = useUserStore()
 
 // 用户名
 const username = ref('')
@@ -15,6 +19,18 @@ const password = ref('')
 defineProps({
   op: String
 }) 
+
+const goLoginOrRegister = async (op) => {
+  if (op === 'Login') {
+    // TODO：登录业务
+    console.log('TODO...')
+  }
+  
+  if (op === 'Register') {
+    console.log(username.value, password.value)
+    await userStore.register({ username: username.value, password: password.value })
+  }
+}
 
 </script>
 
@@ -35,7 +51,7 @@ defineProps({
         placeholder="请输入密码"
         v-model="password" 
       >
-      <button @click="goLogin">{{ op }}</button>
+      <button @click="goLoginOrRegister(op)">{{ op }}</button>
     </div>
   </div>
 </template>
