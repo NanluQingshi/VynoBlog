@@ -24,7 +24,29 @@ const routes = [
       },
       {
         path: '/user',
-        component: () => import('@/views/user/UserInfo.vue')
+        component: () => import('@/views/user/UserIndex.vue'),
+        children: [
+          {
+            path: '',
+            component: () => import('@/views/user/components/MyInfo.vue')
+          }, 
+          {
+            path: 'publish',
+            component: () => import('@/views/user/components/Publish.vue')
+          },
+          {
+            path: 'like',
+            component: import('@/views/user/components/MyLike.vue')
+          },
+          {
+            path: 'collect',
+            component: import('@/views/user/components/MyCollect.vue')
+          },
+          {
+            path: 'blog',
+            component: import('@/views/user/components/MyBlog.vue')
+          }
+        ]
       }
     ]
   },
