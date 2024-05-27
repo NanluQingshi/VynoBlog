@@ -2,8 +2,8 @@
 </script>
 
 <template>
-  <div>个人信息页</div>
+  <div>喜欢文章</div>
 </template>
 
-<style lang="less" scoped>
+<style scoped>
 </style>
