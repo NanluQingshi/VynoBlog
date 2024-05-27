@@ -4,7 +4,7 @@
  * @Description: 用户状态库
  */
 import { defineStore } from 'pinia'
-import { registerAPI } from '@/api/user'
+import { loginAPI, registerAPI } from '@/api/user'
 
 export const useUserStore = defineStore('user', {
 
@@ -26,7 +26,23 @@ export const useUserStore = defineStore('user', {
       } catch (err) {
         console.log(err)
       }
+    },
+
+    // 用户登录
+    async login(user) {
+      try {
+        if (user.username.trim() === '' || user.password.trim() === '') {
+          this.tipsMsg = '输入不能为空'
+          return
+        }
+        const result = await loginAPI(user)
+        if (result.data) {
+          sessionStorage.setItem('user', JSON.stringify(result.data))
+        }
+      } catch (err) {
+        console.log(err, 'opop')
+      }
     }
-  }
+  },
 
 })
