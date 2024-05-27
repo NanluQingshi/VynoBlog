@@ -9,11 +9,17 @@ import UserNav from './components/UserNav.vue'
 </script>
 
 <template>
-  <div>
+  <div class="box">
     <UserNav></UserNav>
     <router-view></router-view>
   </div>
 </template>
 
 <style lang="less" scoped>
+.box {
+  display: flex;
+  width: 100%;
+  height: 40rem;
+  background-color: #f0f2f5;
+}
 </style>
