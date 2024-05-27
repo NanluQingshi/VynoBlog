@@ -5,7 +5,11 @@
 -->
 <script setup>
 import Search from '@/components/Search.vue'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+// 路由对象
+const router = useRouter()
 
 // 用户名
 const username = ref('default') 
@@ -13,6 +17,29 @@ const username = ref('default')
 const boxShow = ref(false) 
 // 是否登录
 const isLogin = ref(false) 
+
+// 获取用户信息
+const getUserInfo = () => {
+  const user = JSON.parse(sessionStorage.getItem('user'))
+  if (user === null || user.token === null) {
+    isLogin.value = false
+  } else {
+    isLogin.value = true
+    username.value = user.username
+  }
+}
+
+// 用户登出
+const logout = () => {
+  sessionStorage.removeItem('user')
+  setTimeout(() => {
+    router.go('/home')
+  }, 600)
+}
+
+onMounted(() => [
+  getUserInfo()
+]) 
 
 </script>
 
@@ -133,6 +160,7 @@ nav {
             width: 100%;
             height: 1.5rem;
             border-radius: 1rem;
+            cursor: pointer;
 
             &:hohver {
               background-color: #ccc;

@@ -6,9 +6,12 @@
 <script setup>
 import { ref, defineProps } from 'vue'
 import { useUserStore } from '@/store/userStore'
+import { useRouter } from 'vue-router'
 
 // 用户仓库
 const userStore = useUserStore()
+// 路由
+const router = useRouter()
 
 // 用户名
 const username = ref('')
@@ -22,8 +25,13 @@ defineProps({
 
 const goLoginOrRegister = async (op) => {
   if (op === 'Login') {
-    // TODO：登录业务
-    console.log('TODO...')
+    await userStore.login({ username: username.value, password: password.value })
+    // 800 ms 后跳转到首页
+    setTimeout(() => {
+      if (sessionStorage.getItem('user')) {
+        router.push('/home')
+      }
+    }, 800)
   }
   
   if (op === 'Register') {

@@ -17,3 +17,16 @@ export const registerAPI = (username, password) => {
     password
   })
 }
+
+/**
+ * @description: 用户登录
+ * @param {*} username - 用户名
+ * @param {*} password - 密码
+ * @return {*}
+ */
+export const loginAPI = ({ username, password }) => {
+  return httpInstance.post('/user/login', {
+    username,
+    password
+  })
+}
