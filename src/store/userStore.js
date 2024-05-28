@@ -4,7 +4,7 @@
  * @Description: 用户状态库
  */
 import { defineStore } from 'pinia'
-import { loginAPI, registerAPI } from '@/api/user'
+import { getUserInfoAPI, loginAPI, registerAPI } from '@/api/user'
 
 export const useUserStore = defineStore('user', {
 
@@ -42,7 +42,16 @@ export const useUserStore = defineStore('user', {
       } catch (err) {
         console.log(err, 'opop')
       }
+    },
+    
+    // 获取信息
+    async getInfo() {
+      try {
+        const result = await getUserInfoAPI()
+        return result
+      } catch (err) {
+        console.log(err)
+      }
     }
   },
-
 })

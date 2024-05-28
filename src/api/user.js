@@ -1,6 +1,11 @@
 /*
  * @Author: nlqs
  * @Date: 2024-05-26 21:53:54
+ * @Description: 
+ */
+/*
+ * @Author: nlqs
+ * @Date: 2024-05-26 21:53:54
  * @Description: 封装用户相关业务接口
  */
 import httpInstance from '@/utils/http'
@@ -29,4 +34,12 @@ export const loginAPI = ({ username, password }) => {
     username,
     password
   })
+}
+
+/**
+ * @description: 获取用户信息
+ * @return {*}
+ */
+export const getUserInfoAPI = () => {
+  return httpInstance.get('/user/getInfo')
 }

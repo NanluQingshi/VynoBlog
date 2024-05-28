@@ -4,7 +4,10 @@
  * @Description: 个人信息组件
 -->
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
+import { useUserStore } from '@/store/userStore'
+
+const userStore = useUserStore()
 
 const userInfo = ref({
   username: 'Jack',
@@ -13,14 +16,32 @@ const userInfo = ref({
   email: 'email'
 }) 
 
-const isShow = ref(false) 
+let isShow = ref(false) 
+let isLogin = ref(true) 
+
+// 获取用户信息
+const getUserInfo = async () => {
+  const token = JSON.parse(sessionStorage.getItem('user'))
+  if (token === null) {
+    isLogin = false
+    userInfo.value = null
+    return 
+  }
+  const res = await userStore.getInfo()
+  console.log(res)
+  userInfo.value = res.data.userInfo
+}
+
+onMounted(() => {
+  getUserInfo()
+}) 
 
 </script>
 
 <template>
   <div class="box">
     <div class="title">个人信息</div>
-    <div class="info">
+    <div class="info" v-if="isLogin">
       <div class="left">
         <div class="img">
           <img src="@/assets/photo.png" alt="">
@@ -53,6 +74,9 @@ const isShow = ref(false)
           <span v-show="isShow" class="confirm" @click="doUpdate(userInfo)">确认</span>
         </div>
       </div>
+    </div>
+    <div class="unlogin" v-else>
+      您还未登录，请登录后查看...
     </div>
   </div> 
 </template>
@@ -157,6 +181,16 @@ const isShow = ref(false)
       }
       
     }
+  }
+
+  .unlogin {
+    margin-top: 2.2rem;
+    width: 100%;
+    height: 90%;
+    background-color: #fff;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 28.75rem;
   }
 }
 </style>

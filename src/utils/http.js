@@ -19,7 +19,11 @@ const http = axios.create({
 http.interceptors.request.use(config => {
   // 开始进度条动画
   nprogress.start()
-
+  const user = window.sessionStorage.getItem('user')
+  console.log(JSON.parse(user))
+  if (user !== null) {
+    config.headers.token = JSON.parse(user).token
+  }
   return config
 }, err => {
   console.log(err)
