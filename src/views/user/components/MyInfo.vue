@@ -32,6 +32,12 @@ const getUserInfo = async () => {
   userInfo.value = res.data.userInfo
 }
 
+// 更新用户信息
+const doUpdate = (userInfo) => {
+  console.log(userInfo)
+  isShow.value = false
+}
+
 onMounted(() => {
   getUserInfo()
 }) 
