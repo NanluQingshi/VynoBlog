@@ -23,3 +23,24 @@ input {
   outline: nine;
   border: nine;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+}
+html {
+  font-size: 16px;
+}
+body {
+  background-color: #f0f2f5;
+}
+a {
+  text-decoration: none;
+  color: #666;
+  outline: nine;
+}
+ul {
+  list-style: none;
+}
