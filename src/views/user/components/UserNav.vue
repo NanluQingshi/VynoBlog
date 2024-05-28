@@ -10,7 +10,7 @@
   <div class="nav">
     <ul>
       <li><a href="javascript:void(0)" @click="$router.push('/user')">个人资料</a></li>
-      <li><a href="javascript:void(0)" @click="$router.push('/user/publish')">编辑博客</a></li>
+      <li><a href="javascript:void(0)" @click="$router.push('/user/publish')">发布博客</a></li>
       <li><a href="javascript:void(0)" @click="$router.push('/user/like')">我的点赞</a></li>
       <li><a href="javascript:void(0)" @click="$router.push('/user/collect')">我的收藏</a></li>
       <li><a href="javascript:void(0)" @click="$router.push('/user/blog')">我的博客</a></li>

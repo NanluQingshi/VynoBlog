@@ -18,3 +18,8 @@ a {
 ul {
   list-style: none;
 }
+input {
+  padding-left: 0.8rem;
+  outline: nine;
+  border: nine;
+}

@@ -46,7 +46,9 @@ onMounted(() => {
 
 <template>
   <div class="box">
-    <div class="title">个人信息</div>
+    <div class="title">
+      <p>个人信息</p>
+    </div>
     <div class="info" v-if="isLogin">
       <div class="left">
         <div class="img">
@@ -82,7 +84,7 @@ onMounted(() => {
       </div>
     </div>
     <div class="unlogin" v-else>
-      您还未登录，请登录后查看...
+      <p>您还未登录，请登录后查看...</p>
     </div>
   </div> 
 </template>
@@ -91,7 +93,7 @@ onMounted(() => {
 .box {
   display: flex;
   flex-wrap: wrap;
-  padding: 4rem;
+  padding: 2rem 4rem 0 4rem;
 
   .title {
     padding-left: 1.5rem;
@@ -106,7 +108,7 @@ onMounted(() => {
     display: flex;
     margin-top: 2.2rem;
     width: 100%;
-    height: 90%;
+    height: 30.75rem;
     background-color: #fff;
 
     .left {
@@ -190,13 +192,15 @@ onMounted(() => {
   }
 
   .unlogin {
-    margin-top: 2.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2.3rem auto;
     width: 100%;
-    height: 90%;
+    height: 28.75rem;
     background-color: #fff;
     font-size: 2rem;
-    text-align: center;
-    line-height: 28.75rem;
+    letter-spacing: 0.3rem;
   }
 }
 </style>
