@@ -68,7 +68,8 @@ const doPublish = () => {
     height: 5rem;
     line-height: 5rem;
     background-color: #fff;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    font-weight: 900;
   }
 
   .publish {
@@ -84,6 +85,7 @@ const doPublish = () => {
     span {
       font-size: 1.5rem;
       font-weight: 1000;
+      color: #5a5959;
     }
 
     .name,

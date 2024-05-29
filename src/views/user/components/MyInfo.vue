@@ -9,7 +9,9 @@ import { useUserStore } from '@/store/userStore'
 
 const userStore = useUserStore()
 
-const userInfo = ref({
+const  userInfo = ref({})
+
+const defaultInfo = ref({
   username: 'Jack',
   gender: 'Female',
   age: 12,
@@ -24,7 +26,7 @@ const getUserInfo = async () => {
   const token = JSON.parse(sessionStorage.getItem('user'))
   if (token === null) {
     isLogin = false
-    userInfo.value = null
+    userInfo.value = defaultInfo.value
     return 
   }
   const res = await userStore.getInfo()
@@ -101,7 +103,8 @@ onMounted(() => {
     height: 5rem;
     line-height: 5rem;
     background-color: #fff;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    font-weight: 900;
   }
 
   .info {
