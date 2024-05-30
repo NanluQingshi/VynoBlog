@@ -16,7 +16,7 @@ import ArticleElem from '@/components/ArticleElem.vue'
     <div class="content">
       <ul>
         <li
-          v-for="item in 3"
+          v-for="item in 10"
           :key="item"
         >
           <ArticleElem></ArticleElem>

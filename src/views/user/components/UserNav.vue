@@ -20,8 +20,11 @@
 
 <style lang="less" scoped>
 .nav {
+  position: fixed;
+  top: 55rem;
+  left: 0;
   width: 15rem;
-  height: 100%;
+  height: 30rem;
   background-color: #fff;
 
   ul {

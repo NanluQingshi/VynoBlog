@@ -11,7 +11,9 @@ import UserNav from './components/UserNav.vue'
 <template>
   <div class="box">
     <UserNav></UserNav>
-    <router-view></router-view>
+    <div class="right">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -19,7 +21,12 @@ import UserNav from './components/UserNav.vue'
 .box {
   display: flex;
   width: 100%;
-  height: 40rem;
+  height: 100%;
   background-color: #f0f2f5;
+
+  .right {
+    margin-left: 17rem;
+    width: 80%;
+  }
 }
 </style>
