@@ -43,3 +43,20 @@ export const loginAPI = ({ username, password }) => {
 export const getUserInfoAPI = () => {
   return httpInstance.get('/user/getInfo')
 }
+
+/**
+ * @description: 修改用户信息
+ * @param {*} username
+ * @param {*} gender
+ * @param {*} age
+ * @param {*} email
+ * @return {*}
+ */
+export const updateUserInfoAPI = ({ username, gender, age, email }) => {
+  return httpInstance.post('/user/updateInfo', {
+    username,
+    gender,
+    age,
+    email
+  })
+}

@@ -21,7 +21,7 @@
 <style lang="less" scoped>
 .nav {
   position: fixed;
-  top: 55rem;
+  top: 7rem;
   left: 0;
   width: 15rem;
   height: 30rem;

@@ -18,6 +18,13 @@ const defaultInfo = ref({
   email: 'email'
 }) 
 
+const inputInfo = ref({
+  username: '',
+  gender: '',
+  age: 12,
+  email: ''
+})
+
 let isShow = ref(false) 
 let isLogin = ref(true) 
 
@@ -30,14 +37,22 @@ const getUserInfo = async () => {
     return 
   }
   const res = await userStore.getInfo()
-  console.log(res)
+  console.log('获取用户信息: ', res)
   userInfo.value = res.data.userInfo
+  inputInfo.value = res.data.userInfo
 }
 
 // 更新用户信息
-const doUpdate = (userInfo) => {
-  console.log(userInfo)
+const doUpdate = async (userInfo) => {
   isShow.value = false
+  const res = await userStore.updateInfo({
+    username: userInfo.username,
+    gender: userInfo.gender,
+    age: userInfo.age,
+    email: userInfo.email
+  })
+  userInfo
+  console.log('更改用户信息结果', res)
 }
 
 onMounted(() => {
@@ -62,22 +77,22 @@ onMounted(() => {
         <p class="username">
           用户名: 
           <span v-show="!isShow">{{ userInfo.username }}</span>
-          <input type="text" v-model="userInfo.username" v-show="isShow">
+          <input type="text" v-model="inputInfo.username" v-show="isShow">
         </p>
         <p class="gender">
           性别: 
           <span v-show="!isShow">{{ userInfo.gender }}</span>
-          <input type="text" v-model="userInfo.gender" v-show="isShow">
+          <input type="text" v-model="inputInfo.gender" v-show="isShow">
         </p>
         <p class="age">
           年龄: 
           <span v-show="!isShow">{{ userInfo.age }}</span>
-          <input type="text" v-model="userInfo.age" v-show="isShow">
+          <input type="text" v-model="inputInfo.age" v-show="isShow">
         </p>
         <p class="email">
           邮箱: 
           <span v-show="!isShow">{{ userInfo.email }}</span>
-          <input type="text" v-model="userInfo.email" v-show="isShow">
+          <input type="text" v-model="inputInfo.email" v-show="isShow">
         </p>
         <div class="btn">
           <span class="update" @click="isShow =!isShow">修改</span>
