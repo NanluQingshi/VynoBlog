@@ -64,14 +64,14 @@ const getDetail = () => {}
   flex-direction: column;
   justify-content: space-between;
   padding-top: 1rem;
-  width: 26.25rem;
+  width: 24rem;
   height: 18.5rem;
   background-color: #fff;
   cursor: pointer;
   transition: .8s;
 
   &:hover {
-    width: 28rem;
+    width: 24.5rem;
     height: 20rem;
     box-shadow: 0 0 10px 10px rgba(51, 51, 51, 0.25);
   }
