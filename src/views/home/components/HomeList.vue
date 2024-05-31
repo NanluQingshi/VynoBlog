@@ -5,14 +5,21 @@
 -->
 <script setup>
 import BlogCon from '@/components/BlogCon.vue'
+import { useBlogStore } from '@/store/blogStore'
+import { onMounted } from 'vue'
 
+const blogStore= useBlogStore()
+
+onMounted(() => {
+  blogStore.getAllBlog()
+}) 
 </script>
 
 <template>
   <div class="list">
     <ul>
-      <li v-for="item in 10" :key="item">
-        <BlogCon></BlogCon>
+      <li v-for="item in blogStore.blogList" :key="item">
+        <BlogCon :blog="item"></BlogCon>
       </li>
     </ul>
   </div>

@@ -22,7 +22,7 @@ const doPublish = async () => {
     title: title.value,
     label: blogLabel.value,
     content: content.value,
-    cover: ''
+    cover: 'http://img.mrzym.top/FtAnnRvDr78EeHrSJc9IM3fabRiN'
   })
   // 清空输入框信息
   title.value = ''

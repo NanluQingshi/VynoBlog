@@ -3,7 +3,7 @@
  * @Date: 2024-05-31 16:46:48
  * @Description: 博客状态管理库
  */
-import { publishBlogAPI } from '@/api/blog'
+import { getAllBlogAPI, publishBlogAPI } from '@/api/blog'
 import { defineStore } from 'pinia'
 
 export const useBlogStore = defineStore('blog', {
@@ -11,7 +11,9 @@ export const useBlogStore = defineStore('blog', {
     // 提示信心
     tipsInfo: '',
     // 分类列表
-    categoryList: []
+    categoryList: [],
+    // 所有博客
+    blogList: []
   }),
 
   actions: {
@@ -73,6 +75,17 @@ export const useBlogStore = defineStore('blog', {
         return result
       } catch (err) {
         console.log('publish blog error : ', err)
+      }
+    },
+
+    /** 获取所有博客 */
+    async getAllBlog () {
+      try {
+        const result = await getAllBlogAPI()
+        this.blogList = result.data
+        console.log('blogStore: ', this.blogList)
+      } catch (err) {
+        console.log('get all blogs --', err)
       }
     }
   }

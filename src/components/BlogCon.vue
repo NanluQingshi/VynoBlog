@@ -5,12 +5,21 @@
 -->
 
 <script setup>
-import { ref } from 'vue'
+import { ref, defineProps, onMounted } from 'vue'
 
 // 是否收藏
 const isCollect = ref(true)
 // 是否点赞
 const isLike = ref(false)
+
+// 接收父组件传递过来的参数
+const props = defineProps({
+  blog: Object
+})
+
+onMounted(() => {
+  console.log(props.blog)
+})
 
 // TODO: 获取博客详情
 const getDetail = () => {}
@@ -18,14 +27,10 @@ const getDetail = () => {}
 
 <template>
   <div class="blog">
-    <div
-      class="content"
-      @click="getDetail"
-    >
-      <div class="title">标题</div>
-      <div class="text">1998年，凤凰传奇的前身“酷火组合”成立。2003年，演唱的歌曲《月亮之上》让他们开始受到更多关注 [4]。2004年7月，获得第十一届CCTV青年歌手电视大奖赛职业组十佳优秀歌手 [3]；同年，签约孔雀唱片。2005年，组合名改为“凤凰传奇” [4]；同年，发行组合的首张专辑《月亮之上》 [109-110]；此外，还获得了中央电视台综艺频道选秀节目《星光大道》的年度亚军，而他们的演艺之路也正式开启 [4-5]。2008年，首次参加中央电视台春节联欢晚会，而他们也先后十次登上了央视春晚舞台。2009年，进入二炮文工团 [6]；同年，凭借专辑《最炫民族风》获得第11届CCTV-MTV音乐盛典“内地年度最佳组合”奖。
-        2010年，举办组合出道后的首场演唱会 [123]；同年，他们演唱的歌曲《荷塘月色》获得广东省第八届精神文明建设“五个一工程”奖。2012年，发行组合的首张舞曲专辑《舞动奇迹》，其中歌曲《最炫民族风》成为首支被美国NBA篮球比赛作为暖场音乐使用的华语歌曲 [139]。2013年，登上福布斯中国名人榜，位列第71名 [150-151]；同年，凭借歌曲《自由自在》入围第14届华鼎奖全球音乐满意度调查颁奖盛典最受欢迎组合 [158]。2016年，推出专辑《远方的远方还是远方》。2019年，参加庆祝新中国成立七十周年“江山如画”国庆音乐会 [180]。2023年，在中央广播电视总台中秋晚会上演唱歌曲《过山》。</div>
-      <div class="pub-time">2024-05-26 14:41:07</div>
+    <div class="content" @click="getDetail">
+      <div class="title">{{ blog.title }}</div>
+      <div class="text">{{ blog.content }}</div>
+      <div class="pub-time">{{ blog.createdAt }}</div>
     </div>
     <div class="iconitem">
       <ul>

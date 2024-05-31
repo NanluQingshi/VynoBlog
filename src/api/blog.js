@@ -13,3 +13,11 @@ import httpInstance from '@/utils/http'
 export const publishBlogAPI = (blog) => {
   return httpInstance.post('/blog/publish', blog)
 }
+
+/**
+ * @description: 获取所有博客
+ * @return {*}
+ */
+export const getAllBlogAPI = () => {
+  return httpInstance.get('/blog/getAll')
+}
