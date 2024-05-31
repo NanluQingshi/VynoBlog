@@ -1,7 +1,7 @@
 /*
  * @Author: nlqs
  * @Date: 2024-05-26 22:22:14
- * @Description: 用户状态库
+ * @Description: 用户状态管理库
  */
 import { defineStore } from 'pinia'
 import { getUserInfoAPI, loginAPI, registerAPI, updateUserInfoAPI } from '@/api/user'

@@ -4,9 +4,36 @@
  * @Description: 
 -->
 <script setup>
-const doPublish = () => {
-  // TODO：发布博客功能
+import { ElSelect, ElOption } from 'element-plus'
+import { onMounted, ref } from 'vue'
+import { useBlogStore } from '@/store/blogStore'
+
+const blogStore = useBlogStore()
+
+/** 博客 */
+const title = ref('') // 标题
+const blogLabel = ref([]) // 分类标签
+const content = ref('') // 博客内容
+
+// 发布博客功能
+const doPublish = async () => {
+  // 判空
+  await blogStore.publishBlog({
+    title: title.value,
+    label: blogLabel.value,
+    content: content.value,
+    cover: ''
+  })
+  // 清空输入框信息
+  title.value = ''
+  blogLabel.value = []
+  content.value = ''
 }
+
+onMounted(() =>{
+  // 获取博客分类列表
+  blogStore.getCategoryList()
+}) 
 </script>
 
 <template>
@@ -21,6 +48,7 @@ const doPublish = () => {
           <input
             type="text"
             placeholder="请输入文章标题"
+            v-model="title"
           >
         </label>
       </div>
@@ -28,14 +56,22 @@ const doPublish = () => {
         <label for="article-category">
           <span>文章分类: </span>
         </label>
-        <select
-          name="category"
+        <el-select
+          v-model="blogLabel"
+          filterable
+          multiple
+          multiple-limit="3"
+          placeholder="--请选择文章标签--"
           id="article-category"
           class="category"
         >
-          <option value="">--请选择分类--</option>
-          <option value="前端">前端</option>
-        </select>
+          <el-option
+            v-for="item in blogStore.categoryList"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          />
+        </el-select>
       </div>
       <div class="content">
         <label for="article-content">
@@ -44,6 +80,7 @@ const doPublish = () => {
         <textarea
           id="article-content"
           placeholder="请输入文章内容"
+          v-model="content"
         ></textarea>
       </div>
       <div class="btn">
@@ -122,7 +159,7 @@ const doPublish = () => {
         padding-left: 0.6rem;
         width: 36rem;
         height: 2.8rem;
-        border: 0.1rem solid rgb(167, 164, 164);
+        // border: 0.1rem solid rgb(167, 164, 164);
         font-size: 1.1rem;
       }
     }
