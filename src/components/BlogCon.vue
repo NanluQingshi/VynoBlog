@@ -5,20 +5,29 @@
 -->
 
 <script setup>
-import { ref, defineProps, onMounted } from 'vue'
+import { ref, defineProps, onMounted, defineEmits } from 'vue'
+import { format } from 'date-fns'
 
 // 是否收藏
 const isCollect = ref(true)
 // 是否点赞
 const isLike = ref(false)
 
-// 接收父组件传递过来的参数
+/** 接收父组件传递过来的参数 */
 const props = defineProps({
+  // 2.子组件内部通过 props 接收
   blog: Object
 })
 
+/** 声明要触发的事件 */
+const emit = defineEmits(['format-time'])
+
 onMounted(() => {
-  console.log(props.blog)
+  // 格式化博客的发布时间和更新时间
+  const createdAt = format(props.blog.createdAt, 'yyyy-MM-dd HH:mm:ss')
+  const updatedAt = format(props.blog.updatedAt, 'yyyy-MM-dd HH:mm:ss')
+  // 触发自定义事件，传递参数
+  emit('format-time', createdAt, updatedAt)
 })
 
 // TODO: 获取博客详情

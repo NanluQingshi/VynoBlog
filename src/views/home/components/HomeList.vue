@@ -10,6 +10,12 @@ import { onMounted } from 'vue'
 
 const blogStore= useBlogStore()
 
+/** 格式化博客时间 */
+const handleFormatTime = function () {
+  const [ createdAt, updatedAt ] = arguments 
+  blogStore.formatTime({ createdAt, updatedAt })
+}
+
 onMounted(() => {
   blogStore.getAllBlog()
 }) 
@@ -19,7 +25,8 @@ onMounted(() => {
   <div class="list">
     <ul>
       <li v-for="item in blogStore.blogList" :key="item">
-        <BlogCon :blog="item"></BlogCon>
+        <!-- 1.给子组件以添加属性的方式传值 -->
+        <BlogCon :blog="item" @format-time="handleFormatTime"></BlogCon>
       </li>
     </ul>
   </div>

@@ -87,6 +87,16 @@ export const useBlogStore = defineStore('blog', {
       } catch (err) {
         console.log('get all blogs --', err)
       }
+    },
+
+    /** 格式化博客时间 */
+    formatTime ({ createdAt, updatedAt }) {
+      const len = this.blogList.length
+      for (let i = 0; i < len; i++) {
+        const blog = this.blogList[i]
+        blog.createdAt = createdAt
+        this.updatedAt = updatedAt
+      }
     }
   }
 })
