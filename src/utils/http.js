@@ -37,6 +37,12 @@ http.interceptors.response.use(response => {
   return response.data
 }, err => {
   console.log(err)
+  // 处理 token 过期
+  if (err.response.status === 401) {
+    // 清除用户数据
+    window.sessionStorage.removeItem('user')
+  }
+  return Promise.reject(err)
 })
 
 // 导出

@@ -30,13 +30,14 @@ let isLogin = ref(true)
 
 // 获取用户信息
 const getUserInfo = async () => {
+  const res = await userStore.getInfo()
   const token = JSON.parse(sessionStorage.getItem('user'))
+  console.log(token)
   if (token === null) {
     isLogin = false
     userInfo.value = defaultInfo.value
     return 
   }
-  const res = await userStore.getInfo()
   console.log('获取用户信息: ', res)
   userInfo.value = res.data.userInfo
   inputInfo.value = res.data.userInfo
@@ -51,7 +52,6 @@ const doUpdate = async (userInfo) => {
     age: userInfo.age,
     email: userInfo.email
   })
-  userInfo
   console.log('更改用户信息结果', res)
 }
 
