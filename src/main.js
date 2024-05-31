@@ -12,6 +12,8 @@ import router from './router'
 import '@/styles/common.css'
 // 引入 icon
 import '@/assets/css/iconfont.css'
+// element-plus 样式
+import 'element-plus/dist/index.css'
 
 const pinia = createPinia()
 
