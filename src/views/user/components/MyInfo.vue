@@ -38,7 +38,7 @@ const getUserInfo = async () => {
     userInfo.value = defaultInfo.value
     return 
   }
-  console.log('获取用户信息: ', res)
+  // console.log('获取用户信息: ', res)
   userInfo.value = res.data.userInfo
   inputInfo.value = res.data.userInfo
 }

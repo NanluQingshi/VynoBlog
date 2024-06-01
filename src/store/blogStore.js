@@ -83,7 +83,7 @@ export const useBlogStore = defineStore('blog', {
       try {
         const result = await getAllBlogAPI()
         this.blogList = result.data
-        console.log('blogStore: ', this.blogList)
+        // console.log('blogStore: ', this.blogList)
       } catch (err) {
         console.log('get all blogs --', err)
       }

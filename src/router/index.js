@@ -36,17 +36,21 @@ const routes = [
           },
           {
             path: 'like',
-            component: import('@/views/user/components/MyLike.vue')
+            component: () => import('@/views/user/components/MyLike.vue')
           },
           {
             path: 'collect',
-            component: import('@/views/user/components/MyCollect.vue')
+            component: () => import('@/views/user/components/MyCollect.vue')
           },
           {
             path: 'blog',
-            component: import('@/views/user/components/MyBlog.vue')
+            component: () => import('@/views/user/components/MyBlog.vue')
           }
         ]
+      },
+      {
+        path: '/detail/:id',
+        component: () => import('@/views/article/Detail.vue')
       }
     ]
   },

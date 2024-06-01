@@ -20,7 +20,7 @@ http.interceptors.request.use(config => {
   // 开始进度条动画
   nprogress.start()
   const user = window.sessionStorage.getItem('user')
-  console.log(JSON.parse(user))
+  // console.log(JSON.parse(user))
   if (user !== null) {
     config.headers.token = JSON.parse(user).token
   }
@@ -42,7 +42,7 @@ http.interceptors.response.use(response => {
     // 清除用户数据
     window.sessionStorage.removeItem('user')
   }
-  return Promise.reject(err)
+  return err
 })
 
 // 导出

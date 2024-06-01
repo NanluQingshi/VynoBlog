@@ -7,6 +7,9 @@
 <script setup>
 import { ref, defineProps, onMounted, defineEmits } from 'vue'
 import { format } from 'date-fns'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 // 是否收藏
 const isCollect = ref(true)
@@ -16,7 +19,7 @@ const isLike = ref(false)
 /** 接收父组件传递过来的参数 */
 const props = defineProps({
   // 2.子组件内部通过 props 接收
-  blog: Object
+  blog: Object,
 })
 
 /** 声明要触发的事件 */
@@ -31,7 +34,11 @@ onMounted(() => {
 })
 
 // TODO: 获取博客详情
-const getDetail = () => {}
+const getDetail = () => {
+  router.push({
+    path: `/detail/${props.blog._id}`
+  })
+}
 </script>
 
 <template>
@@ -66,6 +73,7 @@ const getDetail = () => {}
       </ul>
     </div>
   </div>
+
 </template>
 
 <style lang="less" scoped>
@@ -82,7 +90,7 @@ const getDetail = () => {}
   height: 18.5rem;
   background-color: #fff;
   cursor: pointer;
-  transition: .8s;
+  transition: 0.8s;
 
   &:hover {
     width: 24.5rem;

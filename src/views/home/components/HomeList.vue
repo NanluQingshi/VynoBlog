@@ -24,7 +24,7 @@ onMounted(() => {
 <template>
   <div class="list">
     <ul>
-      <li v-for="item in blogStore.blogList" :key="item">
+      <li v-for="item in blogStore.blogList" :key="item._id">
         <!-- 1.给子组件以添加属性的方式传值 -->
         <BlogCon :blog="item" @format-time="handleFormatTime"></BlogCon>
       </li>
